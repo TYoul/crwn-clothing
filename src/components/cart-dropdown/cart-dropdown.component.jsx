@@ -1,7 +1,7 @@
 import React, { memo } from 'react';
 import './cart-dropdown.style.scss';
 
-import CustomButton from '../custom-button/custom-button.components';
+import CustomButton from '../custom-button/custom-button.component';
 
 export default memo(function CartDropDown() {
   return (
