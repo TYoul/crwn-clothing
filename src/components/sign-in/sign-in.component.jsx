@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import './sign-in.style.scss';
+import { SignInContainer } from './sign-in.style.js';
 
 import FormInput from '../form-input/form-input.component';
 import CustomButton from '../custom-button/custom-button.component';
@@ -17,7 +17,7 @@ export default class SignIn extends PureComponent {
   }
   render() {
     return (
-      <div className="sign-in">
+      <SignInContainer>
         <h2>I already have an account</h2>
         <span>Sign in with with youer email and passworld</span>
         <form onSubmit={event => this.handleSubmit(event)}>
@@ -48,7 +48,7 @@ export default class SignIn extends PureComponent {
             </CustomButton>
           </div>
         </form>
-      </div>
+      </SignInContainer>
     );
   }
 

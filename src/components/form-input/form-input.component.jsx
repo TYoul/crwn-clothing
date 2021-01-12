@@ -1,19 +1,23 @@
 import React, { memo } from 'react';
-import './form-input.style.scss';
+import {
+  GroupContainer,
+  FormInputContainer,
+  FormInputLabel,
+} from './form-input.style.js';
 
 export default memo(function FormInput({ handleChange, label, ...otherProps }) {
   return (
-    <div className="group">
-      <input className="form-input" onChange={handleChange} {...otherProps} />
+    <GroupContainer className="group">
+      <FormInputContainer
+        className="form-input"
+        onChange={handleChange}
+        {...otherProps}
+      />
       {label ? (
-        <label
-          className={`${
-            otherProps.value.length ? 'shrink' : ''
-          } form-input-label`}
-        >
+        <FormInputLabel className={otherProps.value.length ? 'shrink' : ''}>
           {label}
-        </label>
+        </FormInputLabel>
       ) : null}
-    </div>
+    </GroupContainer>
   );
 });

@@ -1,14 +1,14 @@
 import React, { memo } from 'react';
-import './sign-in-and-sign-up.style.scss';
+import { SignInAndSignUpContainer } from './sign-in-and-sign-up.style.js';
 
 import SignIn from '../../components/sign-in/sign-in.component';
 import SignUp from '../../components/sign-up/sign-up.component';
 
 export default memo(function SignInAndSignUp() {
   return (
-    <div className="sign-in-and-sign-up">
+    <SignInAndSignUpContainer>
       <SignIn />
       <SignUp />
-    </div>
+    </SignInAndSignUpContainer>
   );
 });

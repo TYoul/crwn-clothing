@@ -1,11 +1,11 @@
 import React, { memo } from 'react';
-import './collection-preview.style.scss';
+import { CollectionPreviewContainer } from './collection-preview.style.js';
 
 import CollectionItem from '../collection-item/collection-item.component';
 
 export default memo(function CollectionPreview({ title, items }) {
   return (
-    <div className="collection-preview">
+    <CollectionPreviewContainer>
       <h1 className="title">{title.toUpperCase()}</h1>
       <div className="preview">
         {items
@@ -14,6 +14,6 @@ export default memo(function CollectionPreview({ title, items }) {
             <CollectionItem key={item.id} item={item} />
           ))}
       </div>
-    </div>
+    </CollectionPreviewContainer>
   );
 });
