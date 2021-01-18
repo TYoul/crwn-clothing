@@ -1,8 +1,21 @@
 import React, { memo } from 'react';
-import { CustomButtonContainer } from './custom-button.style.js';
+import './custom-button.style.scss';
 
-const CustomButton = memo(({ children, ...props }) => {
-  return <CustomButtonContainer {...props}>{children}</CustomButtonContainer>;
+export default memo(function CustomButton({
+  children,
+  isGoogleSignIn,
+  inverted,
+  ...otherProps
+}) {
+  return (
+    <button
+      className={` 
+      ${inverted ? 'inverted' : ''} 
+      ${isGoogleSignIn ? 'google-sign-in' : ''} 
+      custom-button`}
+      {...otherProps}
+    >
+      {children}
+    </button>
+  );
 });
-
-export default CustomButton;

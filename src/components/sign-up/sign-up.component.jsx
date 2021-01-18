@@ -1,11 +1,11 @@
 import React, { PureComponent } from 'react';
 
-import { SignUpContainer } from './sign-up.style.js';
-
 import FormInput from '../form-input/form-input.component';
 import CustomButton from '../custom-button/custom-button.component';
 
 import { auth, createUserProfileDocument } from '../../firebase/firebase.utils';
+
+import './sign-up.style.scss';
 
 export default class SignUp extends PureComponent {
   constructor() {
@@ -21,7 +21,7 @@ export default class SignUp extends PureComponent {
   render() {
     const { displayName, email, password, confirmPassword } = this.state;
     return (
-      <SignUpContainer>
+      <div className="sign-up">
         <h2 className="title">I do not have a account</h2>
         <span>Sign up with your email and password</span>
         <form className="sign-up-form" onSubmit={e => this.handleSubmit(e)}>
@@ -59,7 +59,7 @@ export default class SignUp extends PureComponent {
           />
           <CustomButton type="submit">SIGN UP</CustomButton>
         </form>
-      </SignUpContainer>
+      </div>
     );
   }
 

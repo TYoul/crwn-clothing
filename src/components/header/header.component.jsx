@@ -1,13 +1,9 @@
 import React, { memo } from 'react';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 
-import {
-  HeaderContainer,
-  LogoContainer,
-  OptionsContainer,
-  OptionLink,
-} from './header.style.js';
+import './header.style.scss';
 import { ReactComponent as Logo } from '../../assets/crown.svg';
 
 import { auth } from '../../firebase/firebase.utils';
@@ -19,24 +15,30 @@ import { selectCurrentUser } from '../../redux/user/user.selector';
 
 const Header = memo(function ({ currentUser, hidden }) {
   return (
-    <HeaderContainer>
-      <LogoContainer to="/">
+    <div className="header">
+      <Link className="logo-container" to="/">
         <Logo className="logo" />
-      </LogoContainer>
-      <OptionsContainer>
-        <OptionLink to="/shop">SHOP</OptionLink>
-        <OptionLink to="/contact">CONTACT</OptionLink>
+      </Link>
+      <div className="options">
+        <Link className="option" to="/shop">
+          SHOP
+        </Link>
+        <Link className="option" to="/contact">
+          CONTACT
+        </Link>
         {currentUser ? (
-          <OptionLink as="div" onClick={e => auth.signOut()}>
+          <div className="option" onClick={e => auth.signOut()}>
             SIGN OUT
-          </OptionLink>
+          </div>
         ) : (
-          <OptionLink to="/signin">SIGN IN</OptionLink>
+          <Link className="option" to="/signin">
+            SIGN IN
+          </Link>
         )}
         <CartIcon />
-      </OptionsContainer>
+      </div>
       {hidden ? null : <CartDropDown />}
-    </HeaderContainer>
+    </div>
   );
 });
 

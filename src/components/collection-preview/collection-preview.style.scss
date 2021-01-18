@@ -1,6 +1,4 @@
-import styled from 'styled-components';
-
-export const CollectionPreviewContainer = styled.div`
+.collection-preview {
   display: flex;
   flex-direction: column;
   margin-bottom: 30px;
@@ -14,4 +12,4 @@ export const CollectionPreviewContainer = styled.div`
     display: flex;
     justify-content: space-between;
   }
-`;
+}
